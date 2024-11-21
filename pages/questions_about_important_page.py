@@ -11,3 +11,4 @@ class QuestionsAaboutImportant:
     def get_description_answer(self, locator):
         # проверяет что появился ответ
         return self.driver.find_element(*locator).text
+
