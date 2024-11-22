@@ -1,4 +1,3 @@
-
 questions_and_answers = [
     (0, "Стоимость — 400 рублей в сутки."),
     (1, "Можно сразу несколько самокатов? Конечно! Стоимость каждого нового самоката будет рассчитана отдельно."),
@@ -10,3 +9,7 @@ questions_and_answers = [
     (7, "Я живу за МКАДом, привезёте? Да, если ваш адрес находится в зоне доставки."),
 ]
 
+class URLs:
+    BASE_URL = "https://qa-scooter.praktikum-services.ru/"
+    LOGIN_URL = f"{BASE_URL}login"
+    ORDER_URL = f"{BASE_URL}order"

@@ -2,13 +2,19 @@ import allure
 
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
+from data_questions import URLs
+
 
 @allure.title('Тесты на проверку вопросов')
 class MainPage(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+
+    def open_main_page(self):
+        self.open_page(URLs.BASE_URL)
 
     @allure.step('Клик на вопрос')
     def click_to_question(self, num):
-        # нажатие на вопрос
         locator_q_formatted = self.format_locators(MainPageLocators.QUESTION_LOCATOR, num)
         self.scroll_to_element(MainPageLocators.QUESTION_LOCATOR_TO_SCROLL)
         self.click_to_element(locator_q_formatted)
