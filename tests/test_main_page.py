@@ -1,6 +1,8 @@
 import pytest
 from pages.main_page import MainPage
-from data import questions_and_answers
+from data_questions import questions_and_answers
+from conftest import driver
+
 
 class TestMainPage:
 
@@ -8,6 +10,7 @@ class TestMainPage:
     def test_questions_and_answers(self, driver, num, result):
         # Создаём объект страницы
         main_page = MainPage(driver)
+        main_page.open_main_page()
         # Проверяем текст ответа
         assert main_page.get_answer_text(num) == result, f"Ожидалось '{result}', но получено другое"
 

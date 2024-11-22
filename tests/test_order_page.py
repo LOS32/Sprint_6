@@ -2,7 +2,7 @@ import pytest
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 from locators.main_page_locators import MainPageLocators
-from data import order_data
+from data_orders import order_data
 
 class TestOrderPage:
 
