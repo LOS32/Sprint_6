@@ -8,3 +8,5 @@ def driver():
     driver = webdriver.Firefox(options=options)
     yield driver
     driver.quit()
+
+#сделай вункцию для клика по кнопке принять куки
