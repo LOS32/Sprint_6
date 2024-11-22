@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 class OrderPageLocators:
     ORDER_NAME_FIELD = (By.XPATH, "//input[contains(@placeholder, 'Имя')]")
     ORDER_LAST_NAME_FIELD = (By.XPATH, "//input[@placeholder='* Фамилия']")
+    NEXT_BUTTON = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Далее']")
     ORDER_BUTTON = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']")
     CONFIRM_ORDER_BUTTON = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']")
     VIEW_STATUS_BUTTON = (By.XPATH, "//div[@class='Order_NextButton__1_rCA']//button[text()='Посмотреть статус']")

@@ -1,11 +1,22 @@
 import random
+import string
+from datetime import datetime, timedelta
 
-class GenerateCustomData:
-    def generate_custom_emale(self):
-        base_name = "Dmitrii_Losunov"
-        random_number = random.randint(100, 999)
-        return f"{base_name}_15_{random_number}@yandex.ru"
+class GenerateCastomData:
+    def generate_random_name(self):
+        return ''.join(random.choice(string.ascii_letters, k=8)).capitalize()
 
-    def generate_custom_password(self):
-        random_password = random.randint(100000, 999999)
-        return str(random_password)
+    def generate_random_last_name(self):
+        return ''.join(random.choice(string.ascii_letters, k=10)).capitalize()
+
+    def generate_random_phone(self):
+        return f"+7{random.randint(9000000000, 9999999999)}"
+
+    def generate_random_address(self):
+        streets = ["Ленина", "Невская", "Тверская", "Пушкинская", "Гагарина"]
+        house = random.randint(1, 100)
+        return f"Улица {random.choice(streets)}, дом {house}"
+
+    def generate_random_date(self, days_from_now=7):
+        date = datetime.now() + timedelta(days=random.randint(1, days_from_now))
+        return date.strftime("%d.%m.%Y")
