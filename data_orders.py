@@ -1,13 +1,13 @@
-from helpers import GenerateCustomData
+from helpers import GenerateCastomData
 from locators.order_page_locators import OrderPageLocators
 
-generator = GenerateCustomData()
+generator = GenerateCastomData()
 order_data = [
     (
         generator.generate_random_name(),
         generator.generate_random_last_name(),
         generator.generate_random_address(),
-        OrderPageLocators.METRO_STATION_CLEAN_PONDS,
+        "Чистые пруды",  # Название станции метро
         generator.generate_random_phone(),
         generator.generate_random_date(),
         OrderPageLocators.RENTAL_PERIOD_ONE_DAY,
@@ -17,7 +17,7 @@ order_data = [
         generator.generate_random_name(),
         generator.generate_random_last_name(),
         generator.generate_random_address(),
-        OrderPageLocators.METRO_STATION_SOKOLNIKI,
+        "Сокольники",  # Название станции метро
         generator.generate_random_phone(),
         generator.generate_random_date(),
         OrderPageLocators.RENTAL_PERIOD_TWO_DAYS,

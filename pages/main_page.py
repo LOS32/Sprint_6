@@ -3,20 +3,26 @@ import allure
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 from data_questions import URLs
-
+from selenium.webdriver.common.action_chains import ActionChains
 
 @allure.title('Тесты на проверку вопросов')
 class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
+    @allure.step('Отрытие главной страницы')
     def open_main_page(self):
         self.open_page(URLs.BASE_URL)
 
+    @allure.step('Клик на кнопку принятия куки')
+    def click_to_cookie_button(self):
+        self.click_to_element(MainPageLocators.COOKIE_BUTTON)
+
     @allure.step('Клик на вопрос')
     def click_to_question(self, num):
+        locator_to_scroll = MainPageLocators.QUESTION_LOCATOR_TO_SCROLL
         locator_q_formatted = self.format_locators(MainPageLocators.QUESTION_LOCATOR, num)
-        self.scroll_to_element(MainPageLocators.QUESTION_LOCATOR_TO_SCROLL)
+        self.scroll_to_element(locator_to_scroll)
         self.click_to_element(locator_q_formatted)
 
     @allure.step('Получение ответа на вопрос')
@@ -29,5 +35,12 @@ class MainPage(BasePage):
     def check_question_and_answer(self, num):
         self.click_to_question(num)
         return self.get_answer_text(num)
+
+    @allure.step('Клик на кнопку заказа')
+    def click_to_order_button(self, locator):
+        self.click_to_element(locator)
+
+
+
 
 

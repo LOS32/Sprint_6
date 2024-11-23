@@ -4,10 +4,12 @@ from datetime import datetime, timedelta
 
 class GenerateCastomData:
     def generate_random_name(self):
-        return ''.join(random.choice(string.ascii_letters, k=8)).capitalize()
+        names = ["Иван", "Петр", "Алексей", "Сергей", "Федор"]
+        return random.choice(names)
 
     def generate_random_last_name(self):
-        return ''.join(random.choice(string.ascii_letters, k=10)).capitalize()
+        last_names = ["Иванов", "Петров", "Алексеев", "Сергеев", "Федоров"]
+        return random.choice(last_names)
 
     def generate_random_phone(self):
         return f"+7{random.randint(9000000000, 9999999999)}"

@@ -9,4 +9,3 @@ def driver():
     yield driver
     driver.quit()
 
-#сделай вункцию для клика по кнопке принять куки

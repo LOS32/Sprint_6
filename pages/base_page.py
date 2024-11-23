@@ -1,5 +1,7 @@
+import allure
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BasePage:
@@ -10,7 +12,7 @@ class BasePage:
         self.driver.get(url)
 
     def find_element_with_wait(self, locator):
-        WebDriverWait(self.driver, 3).until(EC.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
     def click_to_element(self, locator):
@@ -28,8 +30,10 @@ class BasePage:
         locator = locator.format(num)
         return (method, locator)
 
+    @allure.step('Скроллинг к элементу')
     def scroll_to_element(self, locator):
-        element = self.find_element_with_wait(locator)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
+        element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element)
+
+
 
