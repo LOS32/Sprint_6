@@ -10,7 +10,8 @@ order_data = [
         "Чистые пруды",  # Название станции метро
         generator.generate_random_phone(),
         generator.generate_random_date(),
-        OrderPageLocators.RENTAL_PERIOD_ONE_DAY,
+        "сутки",
+        #OrderPageLocators.RENTAL_PERIOD_ONE_DAY,
         OrderPageLocators.BLACK_SCOOTER_CHECKBOX
     ),
     (
@@ -20,7 +21,8 @@ order_data = [
         "Сокольники",  # Название станции метро
         generator.generate_random_phone(),
         generator.generate_random_date(),
-        OrderPageLocators.RENTAL_PERIOD_TWO_DAYS,
+        "четверо суток",
+        #OrderPageLocators.RENTAL_PERIOD_TWO_DAYS,
         OrderPageLocators.GREY_SCOOTER_CHECKBOX
     ),
 ]

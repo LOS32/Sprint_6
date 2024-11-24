@@ -28,20 +28,39 @@ class OrderPage(BasePage):
 
     @allure.step('Выбор станции метро')
     def select_metro_station(self, metro_station):
-        # Находим поле для ввода и вводим название станции метро
         self.add_text_to_element(OrderPageLocators.METRO_STATION_DROPDOWN, metro_station)
-        # Ожидаем появления первого элемента из выпадающего списка и кликаем на него
-        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, ".//div[@class='select-search__select']/ul/li[1]/button/div[2]"))).click()
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((OrderPageLocators.METRO_STATION_SAMPLE))).click()
 
     @allure.step('Заполнение второй страницы формы')
-    def fill_second_page(self, date, rental_period, scooter_color):
+    def fill_second_page(self, date, rental_period_label, scooter_color):
         self.add_text_to_element(OrderPageLocators.DATE_PICKER_FIELD, date)
         self.click_to_element(OrderPageLocators.DATE_PICKER_FIELD)
-        self.click_to_element(rental_period)
+        self.select_order_date(date)
+        #self.click_to_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN)
+        self.select_rental_period(rental_period_label)
         self.click_to_element(scooter_color)
 
-    @allure.step('Клик на кнопку Заказать в форме оформления заказа')
+    @allure.step('Выбор даты заказа')
+    def select_order_date(self, order_date):
+        day, month, year = order_date.split('.')
+        self.click_to_element(OrderPageLocators.DATE_PICKER_FIELD)
+        date_locator = (
+            OrderPageLocators.DATE_PICKER_TEMPLATE[0],
+            OrderPageLocators.DATE_PICKER_TEMPLATE[1].format(day)
+        )
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(date_locator))
+        self.click_to_element(date_locator)
+
+    @allure.step('Выбор периода аренды')
+    def select_rental_period(self, rental_period_label):
+        self.click_to_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN)
+        rental_period_locator = (By.XPATH, f"//div[@class='Dropdown-option' and text()='{rental_period_label}']")
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(rental_period_locator))
+        self.click_to_element(rental_period_locator)
+
+    @allure.step('Оформления заказа')
     def confirm_order(self):
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON)
         self.click_to_element(OrderPageLocators.CONFIRM_ORDER_BUTTON)
 
     @allure.step('Проверка наличия на экране кнопки Посмотреть статус')
