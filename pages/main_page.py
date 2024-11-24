@@ -46,7 +46,7 @@ class MainPage(BasePage):
 
     @allure.step('Клик на логотип "Яндекс"')
     def click_yandex_logo(self):
-        self.click_to_element(MainPageLocators.YANDEX_LOGO)
+        self.click_to_element(MainPageLocators.YANDEX_HEADER_BUTTON)
 
 
 
