@@ -11,5 +11,4 @@ questions_and_answers = [
 
 class URLs:
     BASE_URL = "https://qa-scooter.praktikum-services.ru/"
-    LOGIN_URL = f"{BASE_URL}login"
-    ORDER_URL = f"{BASE_URL}order"
+    DZEN_URL = "https://dzen.ru/?yredirect=true"

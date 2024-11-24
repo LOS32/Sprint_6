@@ -40,6 +40,16 @@ class MainPage(BasePage):
     def click_to_order_button(self, locator):
         self.click_to_element(locator)
 
+    @allure.step('Клик на логотип "Самокат"')
+    def click_scooter_logo(self):
+        self.click_to_element(MainPageLocators.SCOOTER_HEADER_BUTTON)
+
+    @allure.step('Клик на логотип "Яндекс"')
+    def click_yandex_logo(self):
+        self.click_to_element(MainPageLocators.YANDEX_LOGO)
+
+
+
 
 
 
