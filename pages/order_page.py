@@ -36,7 +36,6 @@ class OrderPage(BasePage):
         self.add_text_to_element(OrderPageLocators.DATE_PICKER_FIELD, date)
         self.click_to_element(OrderPageLocators.DATE_PICKER_FIELD)
         self.select_order_date(date)
-        #self.click_to_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN)
         self.select_rental_period(rental_period_label)
         self.click_to_element(scooter_color)
 
