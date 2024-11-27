@@ -67,3 +67,4 @@ class OrderPage(BasePage):
     @allure.step('Проверка отображения кнопки "Посмотреть статус"')
     def check_order(self):
         return self.find_element_with_wait(OrderPageLocators.VIEW_STATUS_BUTTON).is_displayed()
+

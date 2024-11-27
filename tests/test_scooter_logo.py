@@ -12,6 +12,6 @@ class TestScooterLogo:
         main_page = MainPage(driver)
         main_page.open_main_page()
         main_page.click_to_cookie_button()
-        main_page.click_to_order_button(MainPageLocators.ORDER_BUTTON_HEADER)
+        main_page.click_order_button_header()
         main_page.click_scooter_logo()
         assert driver.current_url == URLs.BASE_URL

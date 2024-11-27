@@ -46,6 +46,14 @@ class MainPage(BasePage):
     def click_yandex_logo(self):
         self.click_to_element(MainPageLocators.YANDEX_HEADER_BUTTON)
 
+    @allure.step("Клик на кнопку 'Заказать' в хедере")
+    def click_order_button_header(self):
+        self.click_to_element(MainPageLocators.ORDER_BUTTON_HEADER)
+
+    @allure.step("Клик на кнопку 'Заказать' на главной странице")
+    def click_order_button_main(self):
+        self.click_to_element(MainPageLocators.ORDER_BUTTON_MAIN)
+
 
 
 
