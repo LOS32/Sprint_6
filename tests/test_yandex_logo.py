@@ -14,8 +14,7 @@ class TestYandexLogo:
         main_page.open_main_page()
         main_page.click_to_cookie_button()
         main_page.click_yandex_logo()
-        WebDriverWait(driver, 10).until(lambda d: len(d.window_handles) > 1)
-        driver.switch_to.window(driver.window_handles[1])
-        WebDriverWait(driver, 10).until(EC.url_contains(URLs.DZEN_URL))
-        driver.switch_to.window(driver.window_handles[1])
-        assert driver.current_url == URLs.DZEN_URL
+        main_page.wait_for_new_window()
+        main_page.switch_to_window(1)
+        main_page.wait_for_url_contains(URLs.DZEN_URL)
+        assert main_page.get_current_url() == URLs.DZEN_URL

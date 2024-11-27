@@ -42,5 +42,21 @@ class BasePage:
         element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element)
 
+    @allure.step('Получение текущего url')
+    def get_current_url(self):
+        return self.driver.current_url
+
+    def wait_for_new_window(self, timeout=10):
+        WebDriverWait(self.driver, timeout).until(lambda d: len(d.window_handles) > 1)
+
+    def switch_to_window(self, index):
+        self.driver.switch_to.window(self.driver.window_handles[index])
+
+    def wait_for_url_contains(self, url_substring, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.url_contains(url_substring))
+
+
+
+
 
 
