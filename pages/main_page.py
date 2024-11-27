@@ -3,12 +3,12 @@ from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 from data_questions import URLs
 
-@allure.title('Тесты на проверку вопросов')
+@allure.feature('Главная страница')
 class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @allure.step('Отрытие главной страницы')
+    @allure.step('Переход на главную страницу')
     def open_main_page(self):
         self.open_page(URLs.BASE_URL)
 

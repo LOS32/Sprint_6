@@ -5,8 +5,9 @@ from data_questions import URLs
 from conftest import driver
 
 
-@allure.title('Тест на проверку логотипа Самоката')
+@allure.feature('Логотип Самоката')
 class TestScooterLogo:
+    @allure.title('Тест на проверку перехода на главную страницу через логотип Самокат')
     def test_scooter_logo_redirect(self, driver):
         main_page = MainPage(driver)
         main_page.open_main_page()

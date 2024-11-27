@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-@allure.title('Тесты на проверку заказа самоката')
+@allure.feature('Оформление заказа')
 class OrderPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -59,11 +59,11 @@ class OrderPage(BasePage):
         self.wait_for_element_visible(rental_period_locator)
         self.click_to_element(rental_period_locator)
 
-    @allure.step('Оформления заказа')
+    @allure.step('Оформление заказа')
     def confirm_order(self):
         self.click_to_element(OrderPageLocators.ORDER_BUTTON)
         self.click_to_element(OrderPageLocators.CONFIRM_ORDER_BUTTON)
 
-    @allure.step('Проверка наличия на экране кнопки Посмотреть статус')
+    @allure.step('Проверка отображения кнопки "Посмотреть статус"')
     def check_order(self):
         return self.find_element_with_wait(OrderPageLocators.VIEW_STATUS_BUTTON).is_displayed()

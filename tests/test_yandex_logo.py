@@ -6,8 +6,9 @@ from data_questions import URLs
 from conftest import driver
 
 
-@allure.title('Тест на проверку логотипа Яндекса')
+@allure.feature('Логотип Яндекса')
 class TestYandexLogo:
+    @allure.title('Тест на проверку перехода на страницу Дзен через логотип Яндекс')
     def test_yandex_logo_redirect(self, driver):
         main_page = MainPage(driver)
         main_page.open_main_page()
