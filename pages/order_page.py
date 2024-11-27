@@ -29,12 +29,13 @@ class OrderPage(BasePage):
     @allure.step('Выбор станции метро')
     def select_metro_station(self, metro_station):
         self.add_text_to_element(OrderPageLocators.METRO_STATION_DROPDOWN, metro_station)
-        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((OrderPageLocators.METRO_STATION_SAMPLE))).click()
+        self.wait_for_element_visible(OrderPageLocators.METRO_STATION_SAMPLE)
+        self.click_to_element(OrderPageLocators.METRO_STATION_SAMPLE)
 
     @allure.step('Заполнение второй страницы формы')
     def fill_second_page(self, date, rental_period_label, scooter_color):
-        self.add_text_to_element(OrderPageLocators.DATE_PICKER_FIELD, date)
         self.click_to_element(OrderPageLocators.DATE_PICKER_FIELD)
+        self.add_text_to_element(OrderPageLocators.DATE_PICKER_FIELD, date)
         self.select_order_date(date)
         self.select_rental_period(rental_period_label)
         self.click_to_element(scooter_color)
@@ -47,14 +48,14 @@ class OrderPage(BasePage):
             OrderPageLocators.DATE_PICKER_TEMPLATE[0],
             OrderPageLocators.DATE_PICKER_TEMPLATE[1].format(day)
         )
-        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(date_locator))
+        self.wait_for_element_visible(date_locator)
         self.click_to_element(date_locator)
 
     @allure.step('Выбор периода аренды')
     def select_rental_period(self, rental_period_label):
         self.click_to_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN)
         rental_period_locator = (By.XPATH, f"//div[@class='Dropdown-option' and text()='{rental_period_label}']")
-        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(rental_period_locator))
+        self.wait_for_element_visible(rental_period_locator)
         self.click_to_element(rental_period_locator)
 
     @allure.step('Оформления заказа')

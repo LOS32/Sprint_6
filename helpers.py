@@ -18,7 +18,7 @@ class GenerateCastomData:
         house = random.randint(1, 100)
         return f"Улица {random.choice(streets)}, дом {house}"
 
-    def generate_random_date(self, days_from_now=7):
+    def generate_random_date(self, days_from_now=4):
         delta_days = random.randint(1, days_from_now)
-        date = datetime.now() + timedelta(days=delta_days)
+        date = datetime.now() + timedelta(delta_days)
         return date.strftime("%d.%m.%Y")
