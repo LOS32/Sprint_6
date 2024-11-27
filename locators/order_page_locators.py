@@ -20,6 +20,7 @@ class OrderPageLocators:
     RENTAL_PERIOD_TWO_DAYS = (By.XPATH, "//div[@class='Dropdown-placeholder is-selected' and text()='двое суток']")
     BLACK_SCOOTER_CHECKBOX = (By.XPATH, "//input[@id='black']")
     GREY_SCOOTER_CHECKBOX = (By.XPATH, "//input[@id='grey']")
+    RENTAL_PERIOD_TEMPLATE = (By.XPATH, "//div[@class='Dropdown-option' and text()='{}']")
 
 
 
