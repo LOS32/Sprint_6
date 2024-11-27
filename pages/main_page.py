@@ -1,9 +1,7 @@
 import allure
-
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 from data_questions import URLs
-from selenium.webdriver.common.action_chains import ActionChains
 
 @allure.title('Тесты на проверку вопросов')
 class MainPage(BasePage):
