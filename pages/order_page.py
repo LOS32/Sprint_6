@@ -1,9 +1,6 @@
 import allure
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 
 @allure.feature('Оформление заказа')
 class OrderPage(BasePage):
@@ -55,7 +52,6 @@ class OrderPage(BasePage):
     def select_rental_period(self, rental_period_label):
         self.click_to_element(OrderPageLocators.RENTAL_PERIOD_DROPDOWN)
         rental_period_locator = self.format_locators(OrderPageLocators.RENTAL_PERIOD_TEMPLATE, rental_period_label)
-        #rental_period_locator = (By.XPATH, f"//div[@class='Dropdown-option' and text()='{rental_period_label}']")
         self.wait_for_element_visible(rental_period_locator)
         self.click_to_element(rental_period_locator)
 

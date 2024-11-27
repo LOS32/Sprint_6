@@ -22,7 +22,6 @@ class TestOrderPage:
         main_page.open_main_page()
         main_page.click_to_cookie_button()
         main_page.click_to_order_button(button_locator)
-
         order_page = OrderPage(driver)
         order_page.fill_first_page(*order_data[:5])
         order_page.click_to_next_button()

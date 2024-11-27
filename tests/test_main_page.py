@@ -14,6 +14,5 @@ class TestMainPage:
         main_page.open_main_page()
         main_page.click_to_cookie_button()
         main_page.click_to_question(num)
-        # Проверяем текст ответа
         assert main_page.get_answer_text(num) == result, f"Ожидалось '{result}', но получено другое"
 
