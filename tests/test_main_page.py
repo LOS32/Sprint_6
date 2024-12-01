@@ -4,10 +4,8 @@ from pages.main_page import MainPage
 from data_questions import questions_and_answers
 from conftest import driver
 
-@allure.feature('Гдавная страница')
 class TestMainPage:
 
-    @allure.title('Тест на проверку вопросов')
     @pytest.mark.parametrize("num, result", questions_and_answers)
     def test_questions_and_answers(self, driver, num, result):
         main_page = MainPage(driver)

@@ -6,7 +6,6 @@ from locators.main_page_locators import MainPageLocators
 from data_orders import order_data
 from conftest import driver
 
-@allure.feature('Страница заказа самоката')
 class TestOrderPage:
 
     @pytest.mark.parametrize(
@@ -16,7 +15,7 @@ class TestOrderPage:
             (MainPageLocators.ORDER_BUTTON_MAIN, order_data[1]),
         ]
     )
-    @allure.title('Тест на проверку заказа самоката')
+
     def test_create_order(self, driver, button_locator, order_data):
         main_page = MainPage(driver)
         main_page.open_main_page()
