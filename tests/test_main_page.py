@@ -1,5 +1,4 @@
 import pytest
-import allure
 from pages.main_page import MainPage
 from data_questions import questions_and_answers
 from conftest import driver
